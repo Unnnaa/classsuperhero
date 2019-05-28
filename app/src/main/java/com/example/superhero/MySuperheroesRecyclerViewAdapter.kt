@@ -1,5 +1,6 @@
 package com.example.superhero
 
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -7,17 +8,19 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.bumptech.glide.Glide
 
 
 //import com.example.superhero.SuperheroesFragment.OnListFragmentInteractionListener
-//import com.example.superhero.dummy.DummyContent.DummyItem
+import com.example.superhero.dummy.DummyContent.DummyItem
 
 import kotlinx.android.synthetic.main.fragment_superheroes.view.*
 
 
 class MySuperheroesRecyclerViewAdapter(
-    private val activity: MainActivity,
+    private val mContext: RecyclerView,
     private val mValues: ArrayList<HashMap<String, Any>>
+
 ) : RecyclerView.Adapter<MySuperheroesRecyclerViewAdapter.ViewHolder>() {
 
 //    private val mOnClickListener: View.OnClickListener
@@ -43,13 +46,15 @@ class MySuperheroesRecyclerViewAdapter(
         holder.mContentView.text = item["name"].toString()
         holder.mPower.text = item["power"].toString()
         holder.mGender.text = item["gender"].toString()
-
+        Glide.with(mContext).load(item["image"]).into(holder.mImage)
 
 
         holder.mView.setOnClickListener {
-           Toast.makeText(activity, item["name"].toString(), Toast.LENGTH_LONG).show()
-        }
+             Toast.makeText(mContext, item["name"].toString(), Toast.LENGTH_LONG).show()
+//           Toast.makeText(mContext, item["name"].toString(), Toast.LENGTH_LONG).show()
 
+
+        }
     }
 
 
@@ -59,6 +64,8 @@ class MySuperheroesRecyclerViewAdapter(
         val mContentView: TextView = mView.name
         val mGender : TextView = mView.gender
         val mPower : TextView = mView.power
+        val mImage: ImageView = mView.superman
+
 
 
 

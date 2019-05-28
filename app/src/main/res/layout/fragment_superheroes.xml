@@ -6,16 +6,13 @@
               android:layout_height="wrap_content"
               android:id="@+id/fragmentcontainer" android:orientation="vertical">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/superman"
-            android:layout_gravity="top"
-            android:layout_marginTop="50dp"
-            android:id="@+id/superman"/>
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/name"/>
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" app:srcCompat="@mipmap/ic_launcher" android:id="@+id/superman"
+            android:contentDescription="TODO"/>
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/gender"/>

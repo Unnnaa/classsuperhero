@@ -3,7 +3,7 @@ package com.example.superhero
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
-//import android.widget.TextView
+import android.widget.TextView
 
 class MainActivity : AppCompatActivity(){
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->

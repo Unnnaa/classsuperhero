@@ -1,6 +1,5 @@
 package com.example.superhero
 
-import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -15,7 +14,7 @@ class SuperheroesFragment : Fragment() {
     // TODO: Customize parameters
     private var columnCount = 1
 
-//    private var listener: OnListFragmentInteractionListener? = null
+//   private var listener: OnListFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,11 +28,11 @@ class SuperheroesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_superheroes_list, container, false)
-        val names = listOf("Superman","Spiderman","Wonderwoman","Thor","Batman")
-        val powers = listOf(100,90,89,92,70)
-        val genders = listOf("M","M","F","M","M")
-        val image = listOf(R.drawable.superman, spiderman)
+        val view: View = inflater.inflate(R.layout.fragment_superheroes_list, container, false)
+        val names: List<String> = listOf("Superman","Spiderman","Wonderwoman","Thor","Batman")
+        val powers: List<Int> = listOf(100,90,89,92,70)
+        val genders: List<String> = listOf("M","M","F","M","M")
+        val image = intArrayOf(R.drawable.superman, spiderman)
 
         val superheroes = ArrayList<HashMap<String, Any>>()
 
@@ -54,7 +53,7 @@ class SuperheroesFragment : Fragment() {
         if (view is RecyclerView) {
             with(view) {
                 layoutManager = LinearLayoutManager(context)
-                adapter = MySuperheroesRecyclerViewAdapter(activity as MainActivity,superheroes)
+                adapter = MySuperheroesRecyclerViewAdapter(this, superheroes)
             }
         }
         return view
